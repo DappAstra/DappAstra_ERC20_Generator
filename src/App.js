@@ -23,16 +23,10 @@ function App() {
   const [provider, setProvider] = useState(null)
   const [isWaiting, setIsWaiting] = useState(false)
 
-
-  const [decimals, setDecimals] = useState(null)
+  const [decimals, setDecimals] = useState(18)
   const [symbol, setSymbol] = useState(null)
   const [name, setName] = useState(null)
   const [supply, setSupply] = useState(null)
-
-  //const [dao, setDao] = useState(null)
-  //const [treasuryBalance, setTreasuryBalance] = useState(0)
-  //const [proposals, setProposals] = useState(null)
-  //const [quorum, setQuorum] = useState(null)
 
   const [isLoading, setIsLoading] = useState(true)
 
@@ -73,8 +67,8 @@ function App() {
 
   return(
     <>  
-      <div style={{marginTop: '30px', marginBottom: '30px', display: 'inline-block'}}>
-        <Card style={{maxWidth:'450px', minWidth: '450px', display: 'inline-block', margin: '0px'}}>
+      <div style={{display: 'inline-block'}}>
+        <Card style={{maxWidth:'450px', minWidth: '450px', maxHeight:'450px', minHeight: '450px', display: 'inline-block', margin: '25px', backgroundColor: 'white', borderRadius: '12px'}}>
             <div>
               <div style={{margin:'50px', display: 'inline-block'}}>
                 <h2 style={{marginBottom: '30px'}}>ERC20 Token Generator</h2>
@@ -83,7 +77,7 @@ function App() {
                     Token Name <Form.Control style={{width:'100%'}} type='text' placeholder='Token Name' className='my-2' onChange={(e) => setName(e.target.value)}/>
                     <br/> Token Symbol <Form.Control style={{width:'100%'}} type='text' placeholder='Token Symbol' className='my-2' onChange={(e) => setSymbol(e.target.value)}/>
                     <br/> Total Supply <Form.Control style={{width:'100%'}} type='number' step='1' placeholder='Total Supply' className='my-2' onChange={(e) => setSupply(e.target.value)}/>
-                    <br/> Decimal Precision <Form.Control style={{width:'100%'}} type='number' step='1' placeholder='Decimal Precision' className='my-2' onChange={(e) => setDecimals(e.target.value)}/>
+                    <br/> Decimal Precision <Form.Control style={{width:'100%'}} value={decimals} type='number' step='1' placeholder='Decimal Precision' className='my-2' onChange={(e) => setDecimals(e.target.value)}/>
                     
                     {isWaiting? (
                       <>
